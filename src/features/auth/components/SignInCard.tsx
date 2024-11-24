@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { AuthFlow } from "@/features/auth/lib/types";
 import { useAuthActions } from "@convex-dev/auth/react";
@@ -59,7 +58,7 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
                 <CardTitle className="mt-4 md:mt-6">
                     Login to continue
                 </CardTitle>
-                <CardDescription className="text-foreground/70">
+                <CardDescription className="text-muted-foreground">
                     Use your email or another provider to login
                 </CardDescription>
             </CardHeader>
@@ -76,7 +75,7 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
                         disabled={pending}
                         variant="outline"
                         onClick={() => signInByOAuth("google")}
-                        className="w-full flex items-center justify-center font-semibold gap-x-2 bg-neutral-900 hover:bg-neutral-800 hover:bg-neutral-900/50 hover:text-foregorund  text-foreground border-none"
+                        className="btn-outline w-full flex items-center justify-center gap-x-2"
                     >
                         <FcGoogle className="size-5" />
                         Continue with Google
@@ -86,18 +85,18 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
                         disabled={pending}
                         variant="outline"
                         onClick={() => signInByOAuth("github")}
-                        className="w-full flex items-center justify-center font-semibold gap-x-2 bg-neutral-900 hover:bg-neutral-800 hover:bg-neutral-900/50 hover:text-foregorund  text-foreground border-none"
+                        className="btn-outline w-full flex items-center justify-center gap-x-2"
                     >
                         <FaGithub className="size-5" />
                         Continue with GitHub
                     </Button>
                 </aside>
 
-                <Separator className="my-2 bg-foreground/50" />
+                <Separator className="my-2 bg-border" />
 
                 <form className="space-y-4" onSubmit={signInByEmail}>
                     <fieldset>
-                        <label htmlFor="email" className="text-sm font-medium text-foreground/70">Email</label>
+                        <label htmlFor="email" className="text-sm font-medium text-muted-foreground">Email</label>
                         <Input
                             required
                             id="email"
@@ -106,12 +105,12 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
                             disabled={pending}
                             value={account.email}
                             placeholder="Enter your email"
-                            className="bg-neutral-900 border-none"
+                            className="bg-input border-input"
                             onChange={(e) => setAccount({ ...account, email: e.target.value })}
                         />
                     </fieldset>
                     <fieldset>
-                        <label htmlFor="password" className="text-sm font-medium text-foreground/70">Password</label>
+                        <label htmlFor="password" className="text-sm font-medium text-muted-foreground">Password</label>
                         <Input
                             required
                             id="password"
@@ -120,7 +119,7 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
                             disabled={pending}
                             value={account.password}
                             placeholder="Enter your password"
-                            className="bg-neutral-900 border-none"
+                            className="bg-input border-input"
                             onChange={(e) => setAccount({ ...account, password: e.target.value })}
                         />
                     </fieldset>
@@ -128,16 +127,16 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
                         size="sm"
                         type="submit"
                         disabled={pending}
-                        className="w-full rounded-full bg-[#fcba28] text-background font-semibold hover:bg-[#fcba28]/80"
+                        className="btn-primary w-full"
                     >
                         Continue with email
                     </Button>
                 </form>
-                <p className="text-xs text-center text-foreground/50">
-                    Don&apos;t have an account?{" "}
+                <p className="text-xs text-center text-muted-foreground">
+                    Don't have an account?{" "}
                     <span
                         onClick={() => setState("signUp")}
-                        className="text-[#fcba28] hover:underline cursor-pointer"
+                        className="text-primary hover:text-primary/80 hover:underline cursor-pointer"
                     >
                         Sign up
                     </span>
